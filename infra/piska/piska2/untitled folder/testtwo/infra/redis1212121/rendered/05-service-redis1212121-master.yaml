@@ -1,0 +1,26 @@
+# Source: redis1212121/charts/redis/templates/master/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis1212121-master
+  namespace: "infra-redis"
+  labels:
+    app.kubernetes.io/instance: redis1212121
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: redis
+    app.kubernetes.io/version: 7.2.5
+    helm.sh/chart: redis-19.5.5
+    app.kubernetes.io/component: master
+spec:
+  type: ClusterIP
+  internalTrafficPolicy: Cluster
+  sessionAffinity: None
+  ports:
+    - name: tcp-redis
+      port: 6379
+      targetPort: redis
+      nodePort: null
+  selector:
+    app.kubernetes.io/instance: redis1212121
+    app.kubernetes.io/name: redis
+    app.kubernetes.io/component: master

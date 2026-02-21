@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  namespace: default
+  labels:
+    app: postgres
+    managed-by: endfield
+data:
+  POSTGRES_DB: "appdb"
+  POSTGRES_USER: "postgres"
+  POSTGRES_PASSWORD: "changeme"

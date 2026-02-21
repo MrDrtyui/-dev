@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresdsfsdfsdf
+  namespace: test3
+  labels:
+    app: postgresdsfsdfsdf
+    managed-by: endfield
+spec:
+  type: ClusterIP
+  selector:
+    app: postgresdsfsdfsdf
+  ports:
+    - port: 5432
+      targetPort: 5432

@@ -1,0 +1,29 @@
+# Source: prometheussd/charts/kube-prometheus-stack/templates/exporters/kube-etcd/servicemonitor.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: prometheussd-kube-promethe-kube-etcd
+  namespace: infra-monitoring
+  labels:
+    app: kube-prometheus-stack-kube-etcd
+    
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: prometheussd
+    app.kubernetes.io/version: "58.2.2"
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    chart: kube-prometheus-stack-58.2.2
+    release: "prometheussd"
+    heritage: "Helm"
+spec:
+  jobLabel: jobLabel
+    
+  selector:
+    matchLabels:
+      app: kube-prometheus-stack-kube-etcd
+      release: "prometheussd"
+  namespaceSelector:
+    matchNames:
+      - "kube-system"
+  endpoints:
+  - port: http-metrics
+    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token

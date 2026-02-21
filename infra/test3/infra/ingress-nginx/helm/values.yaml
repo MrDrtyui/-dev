@@ -1,0 +1,40 @@
+ingress-nginx:
+  controller:
+    replicaCount: 2
+
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/component: controller
+            topologyKey: kubernetes.io/hostname
+
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "128Mi"
+      limits:
+        cpu: "500m"
+        memory: "512Mi"
+
+    service:
+      type: LoadBalancer
+      externalTrafficPolicy: Local
+
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: false
+
+    admissionWebhooks:
+      enabled: true
+      timeoutSeconds: 10
+
+    ingressClassResource:
+      name: nginx
+      enabled: true
+      default: true
+
+    podDisruptionBudget:
+      enabled: false   # managed by extra/pdb.yaml

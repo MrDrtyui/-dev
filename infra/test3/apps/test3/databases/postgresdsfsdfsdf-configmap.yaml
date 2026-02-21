@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgresdsfsdfsdf-config
+  namespace: test3
+  labels:
+    app: postgresdsfsdfsdf
+    managed-by: endfield
+data:
+  POSTGRES_DB: "appdb"
+  POSTGRES_USER: "postgres"

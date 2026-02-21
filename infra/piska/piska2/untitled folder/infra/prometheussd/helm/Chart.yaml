@@ -1,0 +1,11 @@
+apiVersion: v2
+name: prometheussd
+description: Endfield-managed wrapper chart for prometheussd
+type: application
+version: 0.1.0
+appVersion: ""
+
+dependencies:
+  - name: kube-prometheus-stack
+    version: "58.2.2"
+    repository: "https://prometheus-community.github.io/helm-charts"

@@ -1,0 +1,4 @@
+# Production overrides — merge with: -f values.yaml -f values.prod.yaml
+ingress-nginx:
+  controller:
+    replicaCount: 3

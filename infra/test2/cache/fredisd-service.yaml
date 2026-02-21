@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fredisd
+  namespace: default
+  labels:
+    app: fredisd
+    managed-by: endfield
+spec:
+  type: ClusterIP
+  selector:
+    app: fredisd
+  ports:
+    - name: main
+      port: 6379
+      targetPort: 6379
+      protocol: TCP

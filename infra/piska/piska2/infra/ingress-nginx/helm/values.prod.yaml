@@ -1,0 +1,4 @@
+# Production overrides
+ingress-nginx:
+  controller:
+    replicaCount: 2

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgresasdfasdfasdfasdf-config
+  namespace: default
+  labels:
+    app: postgresasdfasdfasdfasdf
+    managed-by: endfield
+data:
+  POSTGRES_DB: "appdb"
+  POSTGRES_USER: "postgres"

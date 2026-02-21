@@ -1,0 +1,19 @@
+# Production overrides — edit this file for prod deployments
+kube-prometheus-stack:
+  grafana:
+    adminPassword: "CHANGE_ME"
+    persistence:
+      size: 20Gi
+
+  prometheus:
+    prometheusSpec:
+      retention: 30d
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            resources:
+              requests:
+                storage: 50Gi
+
+  alertmanager:
+    enabled: true

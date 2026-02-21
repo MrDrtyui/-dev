@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresasdf-headless
+  namespace: default
+  labels:
+    app: postgresasdf
+    managed-by: endfield
+spec:
+  clusterIP: None
+  selector:
+    app: postgresasdf
+  ports:
+    - name: main
+      port: 5432
+      targetPort: 5432

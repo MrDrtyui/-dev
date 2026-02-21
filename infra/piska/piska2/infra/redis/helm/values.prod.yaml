@@ -1,0 +1,6 @@
+# Production overrides
+redis:
+  architecture: replication
+  auth:
+    enabled: true
+    password: "CHANGE_ME"

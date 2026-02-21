@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-headless
+  namespace: test3
+  labels:
+    app: mongodb
+    managed-by: endfield
+spec:
+  clusterIP: None
+  selector:
+    app: mongodb
+  ports:
+    - name: main
+      port: 27017
+      targetPort: 27017

@@ -1,0 +1,11 @@
+apiVersion: v2
+name: kafka
+description: Endfield-managed wrapper chart for kafka
+type: application
+version: 0.1.0
+appVersion: ""
+
+dependencies:
+  - name: kafka
+    version: "28.3.0"
+    repository: "https://charts.bitnami.com/bitnami"

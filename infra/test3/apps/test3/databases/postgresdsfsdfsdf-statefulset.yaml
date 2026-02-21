@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgresdsfsdfsdf
+  namespace: test3
+  labels:
+    app: postgresdsfsdfsdf
+    managed-by: endfield
+spec:
+  serviceName: postgresdsfsdfsdf-headless
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgresdsfsdfsdf
+  template:
+    metadata:
+      labels:
+        app: postgresdsfsdfsdf
+    spec:
+      containers:
+        - name: postgresdsfsdfsdf
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+        env:
+          - name: POSTGRES_DB
+            valueFrom:
+              configMapKeyRef:
+                name: postgresdsfsdfsdf-config
+                key: POSTGRES_DB
+          - name: POSTGRES_USER
+            valueFrom:
+              configMapKeyRef:
+                name: postgresdsfsdfsdf-config
+                key: POSTGRES_USER
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgresdsfsdfsdf-secret
+                key: POSTGRES_PASSWORD
+        livenessProbe:
+          tcpSocket:
+            port: 5432
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: 5432
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          volumeMounts:
+            - name: data
+              mountPath: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 10Gi

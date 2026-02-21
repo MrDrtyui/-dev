@@ -1,0 +1,25 @@
+# Source: prometheussd/charts/kube-prometheus-stack/templates/prometheus-operator/clusterrolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: prometheussd-kube-promethe-operator
+  labels:
+    
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: prometheussd
+    app.kubernetes.io/version: "58.2.2"
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    chart: kube-prometheus-stack-58.2.2
+    release: "prometheussd"
+    heritage: "Helm"
+    app: kube-prometheus-stack-operator
+    app.kubernetes.io/name: kube-prometheus-stack-prometheus-operator
+    app.kubernetes.io/component: prometheus-operator
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: prometheussd-kube-promethe-operator
+subjects:
+- kind: ServiceAccount
+  name: prometheussd-kube-promethe-operator
+  namespace: infra-monitoring

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redpandalkhj
+  namespace: default
+  labels:
+    app: redpandalkhj
+    managed-by: endfield
+spec:
+  type: ClusterIP
+  selector:
+    app: redpandalkhj
+  ports:
+    - name: main
+      port: 9092
+      targetPort: 9092
+      protocol: TCP

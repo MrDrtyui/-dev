@@ -1,0 +1,11 @@
+apiVersion: v2
+name: redis
+description: Endfield-managed wrapper chart for redis
+type: application
+version: 0.1.0
+appVersion: ""
+
+dependencies:
+  - name: redis
+    version: "19.5.5"
+    repository: "https://charts.bitnami.com/bitnami"

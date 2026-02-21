@@ -1,0 +1,11 @@
+redis:
+  namespaceOverride: "infra-redis"
+  architecture: standalone
+  auth:
+    enabled: false
+  master:
+    persistence:
+      enabled: true
+      size: 2Gi
+  replica:
+    replicaCount: 0
