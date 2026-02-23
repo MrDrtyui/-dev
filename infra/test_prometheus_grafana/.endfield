@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "project_path": "/Users/ila/dev/infra/test_prometheus_grafana",
+  "fields": [
+    {
+      "id": "helm-prometheus-0",
+      "x": -329.4950943270005,
+      "y": -138.69295814565402,
+      "label": "prometheus"
+    }
+  ]
+}
