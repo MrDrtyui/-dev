@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redpanda-1111
+  namespace: default
+spec:
+  serviceName: redpanda-1111-headless
+  replicas: 1
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: redpanda-1111
+  template:
+    metadata:
+      labels:
+        app: redpanda-1111
+    spec:
+      containers:
+        - name: redpanda-1111
+          image: redpandadata/redpanda:v23.3.11
+          ports:
+            - containerPort: 9092
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "2000m"
+              memory: "4Gi"
+          volumeMounts:
+            - name: data
+              mountPath: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 20Gi

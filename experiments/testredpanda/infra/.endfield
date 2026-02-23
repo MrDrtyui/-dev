@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "project_path": "/Users/ila/dev/experiments/testredpanda/infra",
+  "fields": [
+    {
+      "id": "nginx-nginx-deployment-0-3",
+      "x": 447.821087242457,
+      "y": -69.82672994613242,
+      "label": "nginx"
+    },
+    {
+      "id": "redpanda-redpanda-statefulset-0-4",
+      "x": 280.6584403308884,
+      "y": -14.613524750282892,
+      "label": "redpanda"
+    },
+    {
+      "id": "node_1771834039941_2",
+      "x": 12.608080771724062,
+      "y": -56.247673762959906,
+      "label": "redpanda-1111"
+    },
+    {
+      "id": "node_1771834179208_3",
+      "x": 57.98130659996302,
+      "y": 35.04949166073323,
+      "label": "redis-11111"
+    }
+  ]
+}

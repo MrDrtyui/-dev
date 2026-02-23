@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres1212-headless
+  namespace: default
+spec:
+  clusterIP: None
+  selector:
+    app: postgres1212
+  ports:
+    - port: 5432
+      targetPort: 5432

@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: infra-monitoring
-  labels:
-    managed-by: endfield
-    endfield-component: prometheussd

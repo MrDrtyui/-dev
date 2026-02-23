@@ -1,3 +1,0 @@
----
-# Source: prometheussd/charts/kube-prometheus-stack/charts/crds/crds/crd-alertmanagerconfigs.yaml
-# https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.2/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: asdfasdf
+  namespace: default
+  labels:
+    app: asdfasdf
+    managed-by: endfield
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: asdfasdf
+  template:
+    metadata:
+      labels:
+        app: asdfasdf
+    spec:
+      containers:
+        - name: asdfasdf
+          image: redis:7-alpine
+          ports:
+            - containerPort: 6379
+        volumeMounts:
+          - name: data
+            mountPath: /data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: asdfasdf-pvc
